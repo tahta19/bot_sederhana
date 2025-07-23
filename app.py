@@ -1,13 +1,6 @@
 import streamlit as st
 from inference import chat_bot, URL_SOURCES
 
-# Konfigurasi halaman
-st.set_page_config(
-    page_title="MySkill Learning Assistant",
-    page_icon="📚",
-    layout="wide"
-)
-
 # Header
 st.title("📚 MySkill Learning Assistant")
 st.write("Temukan learning path yang tepat untuk kariermu di MySkill.id")
@@ -89,7 +82,7 @@ def handle_path_selection():
 
 # Tampilkan welcome message jika belum ada chat
 if len(st.session_state.messages) == 0:
-    st.write("### 👋 Selamat datang!")
+    st.write("### Selamat datang!")
     st.write("""
     Saya adalah MySkill Learning Assistant yang akan membantu Anda menemukan learning path yang tepat. 
     
@@ -99,7 +92,7 @@ if len(st.session_state.messages) == 0:
     """)
 
 # Dropdown di area utama
-st.write("### 🎯 Pilih Kategori")
+st.write("### Pilih Kategori")
 
 col1, col2 = st.columns(2)
 
@@ -122,7 +115,7 @@ with col2:
     )
 
 # Tampilkan semua URL yang tersedia
-with st.expander("📋 Semua Link MySkill"):
+with st.expander("Semua Link MySkill"):
     col1, col2 = st.columns(2)
     
     with col1:
