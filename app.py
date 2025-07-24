@@ -5,7 +5,7 @@ from inference import chat_bot, URL_SOURCES
 st.title("📚 MySkill Learning Assistant")
 st.write("Temukan learning path yang tepat untuk kariermu di MySkill.id")
 
-# Inisialisasi session state
+# Inisialisasi Chat 
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -44,16 +44,16 @@ def handle_paket_selection():
         paket_key = PAKET_ELEARNING[selected]
         prompt = f"Ceritakan tentang {paket_key}"
         
-        # Add user message
+        # Menambahkan pesan dari user
         st.session_state.messages.append({
             "role": "user", 
             "content": prompt
         })
         
-        # Get bot response
+        # respon bot
         response = chat_bot(prompt)
         
-        # Add assistant message
+        # asisten
         st.session_state.messages.append({
             "role": "assistant", 
             "content": response
@@ -65,16 +65,16 @@ def handle_path_selection():
         path_key = ELEARNING_PATHS[selected]
         prompt = f"Ceritakan tentang learning path {path_key}"
         
-        # Add user message
+        # Menambahkan pesan dari user
         st.session_state.messages.append({
             "role": "user", 
             "content": prompt
         })
         
-        # Get bot response
+        # Respon bot
         response = chat_bot(prompt)
         
-        # Add assistant message
+        # asisten 
         st.session_state.messages.append({
             "role": "assistant", 
             "content": response
@@ -161,4 +161,4 @@ if prompt:
 
 # Footer
 st.markdown("---")
-st.write("Powered by Google Gemini • MySkill Learning Assistant")
+st.write("Powered by Google Gemini 2.0 • MySkill Learning Assistant")
